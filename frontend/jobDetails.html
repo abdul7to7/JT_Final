@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Details</title>
+  </head>
+  <body>
+    <div id="jobDetails"></div>
+    <div id="jobStatus">
+      <span value="bookmarked" class="jobStatusValue">Bookmarked</span>
+      <span value="applied" class="jobStatusValue">Applied</span>
+      <span value="interviewing" class="jobStatusValue">interviewing</span>
+      <span value="offered" class="jobStatusValue">Offered</span>
+      <span value="negotiating" class="jobStatusValue">Negotiating</span>
+      <span value="accepted" class="jobStatusValue">Accepted</span>
+    </div>
+    <div id="jobAttachments" style="display: flex">
+      <div>
+        <p id="jobNotes">Notes</p>
+        <div id="jobNotesContainer" style="display: none">
+          <ul id="jobNotesList"></ul>
+          <form id="addNoteForm">
+            <label>Add a new note:</label>
+            <input type="text" id="noteContent" />
+            <button type="submit">Add</button>
+          </form>
+        </div>
+      </div>
+      <div>
+        <p id="jobReminders">Reminders</p>
+
+        <div id="jobRemindersContainer" style="display: none">
+          <ul id="jobRemindersList"></ul>
+          <form id="addReminderForm">
+            <label>Content</label>
+            <input id="reminderContent" type="text" required />
+            <input id="reminderDate" type="date" required />
+            <button type="submit">Add</button>
+          </form>
+        </div>
+      </div>
+      <div>
+        <p id="jobFiles">Files</p>
+
+        <div id="jobFilesContainer" style="display: none">
+          <ul id="jobFilesList"></ul>
+          <form id="addFileForm">
+            <input id="jobFile" type="file" required />
+            <button type="submit">Add</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <button id="updateJob">update job</button>
+    <form id="updateJobForm" style="display: none">
+      <label>Postion</label>
+      <input id="jobPositionInput" type="string"  />
+      <label>Company</label>
+      <input id="companyInput" type="string" />
+      <label>MaxSalary</label>
+      <input id="maxSalaryInput" type="number"  />
+      <label>Location</label>
+      <input id="locationInput" type="string"  />
+      <label>Status</label>
+      <select id="statusInput" type="string" >
+        <option value="bookmarked">bookmarked</option>
+        <option value="applied">applied</option>
+        <option value="interviewing">interviewing</option>
+        <option value="offered">offered</option>
+        <option value="negotiating">negotiating</option>
+        <option value="offered">rejected</option>
+      </select>
+      <label>DateApplied</label>
+      <input id="dateAppliedInput" type="date"  />
+      <label>Description</label>
+      <input id="descriptionInput" type="string"  />
+      <button type="submit" id="updateJobBtn">update</button>
+    </form>
+    <br />
+    <button id="closeJob">Close</button>
+  </body>
+  <script src="jobDetails.js"></script>
+</html>
