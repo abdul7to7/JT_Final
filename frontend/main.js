@@ -1,4 +1,5 @@
 const server = `https://jt-final-0ato.onrender.com`;
+// const server = "http://localhost:3000";
 const token = localStorage.getItem("token");
 
 window.addEventListener("DOMContentLoaded", async () => {

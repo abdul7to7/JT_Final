@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Details</title>
+    <link rel="stylesheet" href="./jobDetails.css" />
   </head>
   <body>
     <div id="jobDetails"></div>
@@ -52,18 +53,18 @@
         </div>
       </div>
     </div>
-    <button id="updateJob">update job</button>
+    <button id="updateJob">Update Job</button>
     <form id="updateJobForm" style="display: none">
       <label>Postion</label>
-      <input id="jobPositionInput" type="string"  />
+      <input id="jobPositionInput" type="string" />
       <label>Company</label>
       <input id="companyInput" type="string" />
       <label>MaxSalary</label>
-      <input id="maxSalaryInput" type="number"  />
+      <input id="maxSalaryInput" type="number" />
       <label>Location</label>
-      <input id="locationInput" type="string"  />
+      <input id="locationInput" type="string" />
       <label>Status</label>
-      <select id="statusInput" type="string" >
+      <select id="statusInput" type="string">
         <option value="bookmarked">bookmarked</option>
         <option value="applied">applied</option>
         <option value="interviewing">interviewing</option>
@@ -72,13 +73,13 @@
         <option value="offered">rejected</option>
       </select>
       <label>DateApplied</label>
-      <input id="dateAppliedInput" type="date"  />
+      <input id="dateAppliedInput" type="date" />
       <label>Description</label>
-      <input id="descriptionInput" type="string"  />
+      <input id="descriptionInput" type="string" />
       <button type="submit" id="updateJobBtn">update</button>
     </form>
     <br />
-    <button id="closeJob">Close</button>
+    <button id="closeJob">Delete Job</button>
   </body>
   <script src="jobDetails.js"></script>
 </html>

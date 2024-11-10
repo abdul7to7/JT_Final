@@ -4,63 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
   </head>
   <body>
     <div id="addJobContainer">
-      <br />
-      <button id="addJobBtn">Add a new job</button>
-      <br />
-      <label>Search job</label>
-      <input type="text" id="searchJobKeywords" />
-      <br />
-      <br />
-      <button id="updateUserProfileBtn">update profile</button>
-      <form style="display: none" id="userUpdateForm">
-        <label>Username</label>
-        <input id="updateFormUserName" type="text" />
-        <br />
-        <label>Phone No</label>
-        <input id="updateFormPhoneNo" type="text" />
-        <br />
-        <label>Career goal</label>
-        <input id="updateFormCareerGoal" type="text" />
-        <br />
-        <button type="submit">update</button>
-      </form>
-      <br />
-      <h3>Filter Options</h3>
-      <label>Status</label>
-      <select id="filteredStatus">
-        <option disabled selected>all</option>
-        <option value="bookmarked">bookmarked</option>
-        <option value="applied">applied</option>
-        <option value="interviewing">interviewing</option>
-        <option value="offered">offered</option>
-        <option value="negotiating">negotiating</option>
-        <option value="offered">rejected</option>
-      </select>
-      <br />
-      <label>Date Range</label>
-      <input type="date" id="filteredStartDate" />
-      <input type="date" id="filteredEndDate" />
-      <br />
-      <label>Min Salary</label>
-      <input type="number" id="filteredMinSalary" />
-      <br />
-      <br />
-      <!-- <button id="removeFilterBtn">Remove all filter</button> -->
-      <form id="addJobForm" style="display: none">
-        <h3>Add a new job</h3>
-        <label>Postion</label>
-        <input id="jobPositionInput" type="string" required />
-        <label>Company</label>
-        <input id="companyInput" type="string" required />
-        <label>MaxSalary</label>
-        <input id="maxSalaryInput" type="number" required />
-        <label>Location</label>
-        <input id="locationInput" type="string" required />
+      <div id="header">
+        <input
+          type="text"
+          id="searchJobKeywords"
+          placeholder="Search Jobs By Keyword"
+        />
+        <button id="addJobBtn">Add a new job</button>
+        <form id="addJobForm" style="display: none">
+          <h3>Add a new job</h3>
+          <label>Postion</label>
+          <input id="jobPositionInput" type="string" required />
+          <label>Company</label>
+          <input id="companyInput" type="string" required />
+          <label>MaxSalary</label>
+          <input id="maxSalaryInput" type="number" required />
+          <label>Location</label>
+          <input id="locationInput" type="string" required />
+          <label>Status</label>
+          <select id="statusInput" type="string" required>
+            <option value="bookmarked">bookmarked</option>
+            <option value="applied">applied</option>
+            <option value="interviewing">interviewing</option>
+            <option value="offered">offered</option>
+            <option value="negotiating">negotiating</option>
+            <option value="offered">rejected</option>
+          </select>
+          <label>DateApplied</label>
+          <input id="dateAppliedInput" type="date" required />
+          <label>Description</label>
+          <input id="descriptionInput" type="string" required />
+          <button type="submit">Create Job</button>
+        </form>
+        <button id="updateUserProfileBtn">update profile</button>
+        <form style="display: none" id="userUpdateForm">
+          <label>Username</label>
+          <input id="updateFormUserName" type="text" />
+          <br />
+          <label>Phone No</label>
+          <input id="updateFormPhoneNo" type="text" />
+          <br />
+          <label>Career goal</label>
+          <input id="updateFormCareerGoal" type="text" />
+          <br />
+          <button type="submit">update</button>
+        </form>
+      </div>
+
+      <div id="filterOptions">
+        <h3>Filter Options</h3>
         <label>Status</label>
-        <select id="statusInput" type="string" required>
+        <select id="filteredStatus">
+          <option disabled selected>all</option>
           <option value="bookmarked">bookmarked</option>
           <option value="applied">applied</option>
           <option value="interviewing">interviewing</option>
@@ -68,15 +67,17 @@
           <option value="negotiating">negotiating</option>
           <option value="offered">rejected</option>
         </select>
-        <label>DateApplied</label>
-        <input id="dateAppliedInput" type="date" required />
-        <label>Description</label>
-        <input id="descriptionInput" type="string" required />
-        <button type="submit">Create Job</button>
-      </form>
+        <label>Date Range</label>
+        <input type="date" id="filteredStartDate" />
+        <input type="date" id="filteredEndDate" />
+
+        <label>Min Salary</label>
+        <input type="number" id="filteredMinSalary" />
+      </div>
+
+      <!-- <button id="removeFilterBtn">Remove all filter</button> -->
     </div>
     <div class="tableContainer">
-      <h2>User Information</h2>
       <table>
         <thead>
           <tr>

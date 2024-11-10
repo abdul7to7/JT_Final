@@ -1,4 +1,5 @@
 const server = "https://jt-final-0ato.onrender.com";
+// const server = "http://localhost:3000";
 const token = localStorage.getItem("token");
 const jobId = localStorage.getItem("jobid");
 
@@ -140,9 +141,10 @@ document.getElementById("jobFiles").addEventListener("click", async (e) => {
 document.getElementById("addFileForm").addEventListener("submit", async (e) => {
   e.preventDefault();
   const file = document.getElementById("jobFile").files[0];
-  console.log(file);
+
   const res = await postFile(file);
   console.log("add File clicked");
+  window.location.reload();
 });
 
 //delete file
@@ -160,8 +162,11 @@ document.getElementById("jobFilesList").addEventListener("click", async (e) => {
 //delete job
 document.getElementById("closeJob").addEventListener("click", async (e) => {
   e.preventDefault();
-  await deleteJob(jobId);
-  window.location = "./main.html";
+  let userResponse = confirm("Are you sure you want to proceed?");
+  if (userResponse) {
+    await deleteJob(jobId);
+    window.location = "./main.html";
+  }
 });
 
 document.getElementById("updateJob").addEventListener("click", (e) => {
@@ -247,7 +252,7 @@ function addJobToUI(job) {
   const jobReminder = document.getElementById("jobReminders");
   const jobFiles = document.getElementById("jobFiles");
   const closeJob = document.getElementById("closeJob");
-  jobDetails.innerHTML = `<div>${job.jobDetails.position}</div><div>${job.jobDetails.company}</div>`;
+  jobDetails.innerHTML = `<div class=main-heading>${job.jobDetails.position}</div><div class=sub-heading>${job.jobDetails.company}</div>`;
   updateStatus(job.jobDetails.status);
   jobReminder.setAttribute("jobid", job.jobDetails.id);
   jobNotes.setAttribute("jobid", job.jobDetails.id);

@@ -13,6 +13,7 @@ const reminderCron = require("./utils/cronJobs");
 app.use(
   cors({
     origin: ["https://jt-final.onrender.com"],
+    // origin: "*",
   })
 );
 

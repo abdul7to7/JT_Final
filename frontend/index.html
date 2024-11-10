@@ -4,27 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GC | Login</title>
+    <link rel="stylesheet" href="./login.css" />
   </head>
   <body>
-    <form id="loginForm">
-      <input
-        type="mail"
-        name="mail"
-        placeholder="Enter mail"
-        id="loginMail"
-        required
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Enter Password"
-        id="loginPassword"
-        required
-      />
-      <button>Login</button>
-    </form>
-    <div>
-      <a href="./signup.html">Sign Up</a>
+    <div id="mainContainer">
+      <div id="subContainer">
+        <form id="loginForm">
+          <input
+            type="mail"
+            name="mail"
+            placeholder="Enter mail"
+            id="loginMail"
+            required
+          />
+          <br />
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            id="loginPassword"
+            required
+          />
+          <br />
+          <button>Login</button>
+        </form>
+        <br />
+        <div id="signUpLink">
+          <a href="./signup.html">Sign Up</a>
+        </div>
+      </div>
     </div>
   </body>
   <script src="login.js"></script>
