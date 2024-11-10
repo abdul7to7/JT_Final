@@ -1,4 +1,4 @@
-const server = "http://localhost:3000";
+const server = "https://jt-final-0ato.onrender.com";
 
 document.getElementById("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
