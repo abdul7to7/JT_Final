@@ -154,6 +154,7 @@ document.getElementById("addJobBtn").addEventListener("click", (e) => {
 });
 
 function addJobsToUI(jobs) {
+  removeJobsToUI();
   const jobsBody = document.getElementById("jobsBody");
   jobs?.map((job) => {
     const tr = document.createElement("tr");
@@ -176,7 +177,6 @@ function removeJobsToUI() {
 }
 
 function addJobToUI(job) {
-  removeJobsToUI();
   const jobsBody = document.getElementById("jobsBody");
   const tr = document.createElement("tr");
   tr.innerHTML = `
