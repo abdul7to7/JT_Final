@@ -137,7 +137,7 @@ document.getElementById("addJobForm").addEventListener("submit", async (e) => {
 
 document.getElementById("jobsBody").addEventListener("click", (e) => {
   e.preventDefault();
-  if (e.target.classList.contains("job")) {
+  if (e.target.closest(".job")) {
     const id = e.target.getAttribute("id");
     localStorage.setItem("jobid", id);
     window.location.href = "./jobDetails.html";

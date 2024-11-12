@@ -172,15 +172,6 @@ tr:last-child td {
     border-bottom: none;
 }
 
-td {
-    color: #333;
-    transition: background-color 0.3s ease;
-}
-
-td:hover {
-    background-color: #f1f7ff;
-}
-
 caption {
     font-size: 1.25rem;
     font-weight: 600;
