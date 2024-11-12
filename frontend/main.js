@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   localStorage.removeItem("filteredminsalary");
   localStorage.removeItem("searchkeyword");
   const jobs = await getJobs();
-  console.log(jobs);
+
   addJobsToUI(jobs);
 });
 
@@ -25,7 +25,7 @@ document
     );
     if (form.style.display == "none") {
       const user = await getUser();
-      console.log(user);
+
       form.style.display = "block";
       updateFormUserName.value = user.user.username;
       updateFormPhoneNo.value = user.user.phoneno;
@@ -63,7 +63,6 @@ document
 document
   .getElementById("filteredStartDate")
   .addEventListener("change", async (e) => {
-    console.log("yee ha date");
     localStorage.setItem("filteredstartdate", e.target.value);
     removeJobsToUI();
     const jobs = await getJobs();
@@ -73,7 +72,6 @@ document
 document
   .getElementById("filteredEndDate")
   .addEventListener("change", async (e) => {
-    console.log("yee ha end date");
     localStorage.setItem("filteredenddate", e.target.value);
     removeJobsToUI();
     const jobs = await getJobs();
@@ -83,7 +81,6 @@ document
 document
   .getElementById("filteredMinSalary")
   .addEventListener("input", async (e) => {
-    console.log("yee ha end date");
     localStorage.setItem("filteredminsalary", e.target.value);
     removeJobsToUI();
     const jobs = await getJobs();
@@ -96,6 +93,11 @@ document.getElementById("filterClear").addEventListener("click", async (e) => {
   localStorage.removeItem("filteredstartdate");
   localStorage.removeItem("filteredenddate");
   localStorage.removeItem("filteredminsalary");
+  document.getElementById("filteredStatus").value = "";
+  document.getElementById("filteredStartDate").value = "";
+  document.getElementById("filteredEndDate").value = "";
+  document.getElementById("filteredMinSalary").value = "";
+
   removeJobsToUI();
   const jobs = await getJobs();
   addJobsToUI(jobs);
@@ -104,7 +106,6 @@ document.getElementById("filterClear").addEventListener("click", async (e) => {
 document
   .getElementById("searchJobKeywords")
   .addEventListener("input", async (e) => {
-    console.log(`search job ${e.target.value}`);
     localStorage.setItem("searchkeyword", e.target.value);
     removeJobsToUI();
     const jobs = await getJobs();
@@ -140,7 +141,6 @@ document.getElementById("jobsBody").addEventListener("click", (e) => {
   e.preventDefault();
   if (e.target.classList.contains("job")) {
     const id = e.target.getAttribute("id");
-    console.log(`job clicked ${id}`);
     localStorage.setItem("jobid", id);
     window.location.href = "./jobDetails.html";
   }
@@ -180,7 +180,6 @@ function removeJobsToUI() {
 }
 
 function addJobToUI(job) {
-  console.log(job);
   const jobsBody = document.getElementById("jobsBody");
   const tr = document.createElement("tr");
   tr.innerHTML = `
@@ -215,7 +214,6 @@ async function getJobs() {
       urlWithQuery += `keyword=${encodeURIComponent(searchKeyword)}&`;
 
     urlWithQuery = urlWithQuery.slice(0, -1);
-    console.log(urlWithQuery);
     let data = await fetch(`${urlWithQuery}`, {
       headers: {
         token: token,
@@ -239,7 +237,6 @@ async function createJob(job) {
       body: JSON.stringify(job),
     });
     data = await data.json();
-    console.log(data);
     return data;
   } catch (e) {
     console.log(e);
@@ -254,7 +251,6 @@ async function getUser() {
       },
     });
     data = await data.json();
-    console.log(data);
     return data;
   } catch (e) {
     console.log(e);
@@ -272,7 +268,6 @@ async function updateUser(updateBody) {
       body: JSON.stringify(updateBody),
     });
     data = await data.json();
-    console.log(data);
     return data;
   } catch (e) {
     console.log(e);
