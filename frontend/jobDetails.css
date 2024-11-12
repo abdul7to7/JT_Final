@@ -45,6 +45,11 @@
     justify-content: space-evenly;
 }
 
+#jobStatus:hover,
+.jobAttachmentsItem:hover {
+    cursor: pointer;
+}
+
 
 input,
 select {
