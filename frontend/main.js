@@ -173,7 +173,7 @@ function addJobsToUI(jobs) {
 function removeJobsToUI() {
   const jobsBody = document.getElementById("jobsBody");
   while (jobsBody.childNodes.length > 0) {
-    jobsBody.removeChild(jobsBody.childNodes[0]);
+    jobsBody.removeChild(jobsBody.lastChild);
   }
 }
 
