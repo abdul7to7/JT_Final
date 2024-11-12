@@ -55,7 +55,6 @@ document
   .getElementById("filteredStatus")
   .addEventListener("change", async (e) => {
     localStorage.setItem("filteredstatus", e.target.value);
-    removeJobsToUI();
     const jobs = await getJobs();
     addJobsToUI(jobs);
   });
@@ -64,7 +63,7 @@ document
   .getElementById("filteredStartDate")
   .addEventListener("change", async (e) => {
     localStorage.setItem("filteredstartdate", e.target.value);
-    removeJobsToUI();
+
     const jobs = await getJobs();
     addJobsToUI(jobs);
   });
@@ -73,7 +72,7 @@ document
   .getElementById("filteredEndDate")
   .addEventListener("change", async (e) => {
     localStorage.setItem("filteredenddate", e.target.value);
-    removeJobsToUI();
+
     const jobs = await getJobs();
     addJobsToUI(jobs);
   });
@@ -82,7 +81,7 @@ document
   .getElementById("filteredMinSalary")
   .addEventListener("input", async (e) => {
     localStorage.setItem("filteredminsalary", e.target.value);
-    removeJobsToUI();
+
     const jobs = await getJobs();
     addJobsToUI(jobs);
   });
@@ -98,7 +97,6 @@ document.getElementById("filterClear").addEventListener("click", async (e) => {
   document.getElementById("filteredEndDate").value = "";
   document.getElementById("filteredMinSalary").value = "";
 
-  removeJobsToUI();
   const jobs = await getJobs();
   addJobsToUI(jobs);
 });
@@ -107,7 +105,7 @@ document
   .getElementById("searchJobKeywords")
   .addEventListener("input", async (e) => {
     localStorage.setItem("searchkeyword", e.target.value);
-    removeJobsToUI();
+
     const jobs = await getJobs();
     addJobsToUI(jobs);
   });
@@ -180,6 +178,7 @@ function removeJobsToUI() {
 }
 
 function addJobToUI(job) {
+  removeJobsToUI();
   const jobsBody = document.getElementById("jobsBody");
   const tr = document.createElement("tr");
   tr.innerHTML = `
