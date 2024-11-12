@@ -10,7 +10,7 @@ exports.getJobs = async (req, res) => {
     let where = {
       userId: req.user.id,
     };
-    if (status) where.status = status;
+    if (status && status != "all") where.status = status;
     if (salary) {
       where.maxSalary = {
         [Op.gte]: salary,
