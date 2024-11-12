@@ -163,7 +163,9 @@ th {
 }
 
 tr:hover {
-    background-color: #eaf3ff;
+    cursor: pointer;
+
+    background-color: lightgrey;
 }
 
 tr:last-child td {

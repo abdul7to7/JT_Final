@@ -169,7 +169,7 @@ function removeJobsToUI() {
 function addJobToUI(job) {
   const jobsBody = document.getElementById("jobsBody");
   const tr = document.createElement("tr");
-  tr.classList.add = "job";
+  tr.classList.add("job");
   tr.setAttribute("id", job.id);
   tr.innerHTML = `
   <td >${job.position}</td>
