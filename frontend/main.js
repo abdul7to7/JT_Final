@@ -54,7 +54,6 @@ document
 document
   .getElementById("filteredStatus")
   .addEventListener("change", async (e) => {
-    console.log("yee ha");
     localStorage.setItem("filteredstatus", e.target.value);
     removeJobsToUI();
     const jobs = await getJobs();
