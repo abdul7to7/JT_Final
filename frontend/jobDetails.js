@@ -50,9 +50,12 @@ document.getElementById("jobNotes").addEventListener("click", async (e) => {
 //add new note
 document.getElementById("addNoteForm").addEventListener("submit", async (e) => {
   e.preventDefault();
+  const submitButton = e.target.querySelector("button[type='submit']");
+  submitButton.disabled = true;
   const noteContent = document.getElementById("noteContent").value;
   const res = await postNote(noteContent);
   addNoteToUI(res.note);
+  submitButton.disabled = false;
 });
 
 //delete a note
@@ -95,11 +98,14 @@ document
   .getElementById("addReminderForm")
   .addEventListener("submit", async (e) => {
     e.preventDefault();
+    const submitButton = e.target.querySelector("button[type='submit']");
+    submitButton.disabled = true;
     const reminderContent = document.getElementById("reminderContent").value;
     const reminderDate = document.getElementById("reminderDate").value;
     console.log("add reminder clicked", reminderContent, reminderDate);
     const res = await postReminder(reminderContent, reminderDate);
     addReminderToUI(res.reminder);
+    submitButton.disabled = false;
   });
 
 //delete reminder

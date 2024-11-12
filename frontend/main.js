@@ -39,11 +39,16 @@ document
   .getElementById("userUpdateForm")
   .addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    const submitButton = e.target.querySelector("button[type='submit']");
+    submitButton.disabled = true;
+
     const username = document.getElementById("updateFormUserName").value;
     const phoneno = document.getElementById("updateFormPhoneNo").value;
     const careerGoal = document.getElementById("updateFormCareerGoal").value;
     await updateUser({ username, phoneno, careerGoal });
     e.target.style.display = "none";
+    submitButton.disabled = false;
   });
 
 document
@@ -112,7 +117,9 @@ document
 
 document.getElementById("addJobForm").addEventListener("submit", async (e) => {
   e.preventDefault();
-  console.log("click");
+  const submitButton = e.target.querySelector("button[type='submit']");
+  submitButton.disabled = true;
+
   const position = document.getElementById("jobPositionInput").value;
   const company = document.getElementById("companyInput").value;
   const maxSalary = document.getElementById("maxSalaryInput").value;
@@ -130,6 +137,7 @@ document.getElementById("addJobForm").addEventListener("submit", async (e) => {
     description,
   });
   addJobToUI(res?.job);
+  submitButton.disabled = false;
 });
 
 document.getElementById("jobsBody").addEventListener("click", (e) => {

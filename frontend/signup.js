@@ -2,6 +2,10 @@ const server = `https://jt-final-0ato.onrender.com`;
 // const server = "http://localhost:3000";
 document.getElementById("signupForm").addEventListener("submit", async (e) => {
   e.preventDefault();
+
+  const submitButton = e.target.querySelector("button[type='submit']");
+  submitButton.disabled = true;
+
   const username = document.getElementById("signupUsername").value;
   const mail = document.getElementById("signupMail").value;
   const phoneno = document.getElementById("signupPhoneno").value;
@@ -35,6 +39,7 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
     localStorage.setItem("username", data.username);
     localStorage.setItem("token", data.token);
     window.location = "./main.html";
+    submitButton.disabled = false;
   } catch (error) {
     console.error("Error during signup:", error);
     alert("An error occurred. Please try again later.");

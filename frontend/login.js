@@ -3,6 +3,8 @@ const server = "https://jt-final-0ato.onrender.com";
 
 document.getElementById("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
+  const submitButton = e.target.querySelector("button[type='submit']");
+  submitButton.disabled = true;
   const mail = document.getElementById("loginMail").value;
   const password = document.getElementById("loginPassword").value;
 
@@ -21,6 +23,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     localStorage.setItem("userId", data.userId);
     localStorage.setItem("mail", data.username);
     localStorage.setItem("token", data.token);
+    submitButton.disabled = false;
 
     window.location = "./main.html";
   } catch (error) {
