@@ -157,17 +157,7 @@ function addJobsToUI(jobs) {
   removeJobsToUI();
   const jobsBody = document.getElementById("jobsBody");
   jobs?.map((job) => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-    <td class="job" id=${job.id}>${job.position}</td>
-    <td>${job.company}</td>
-    <td>${job.maxSalary}</td>
-    <td>${job.location}</td>
-    <td>${job.status}</td>
-    <td>${job.dateApplied.split("T")[0]}</td>
-    <td>${job.description}</td>
-    `;
-    jobsBody.appendChild(tr);
+    addJobToUI(job);
   });
 }
 
@@ -179,8 +169,10 @@ function removeJobsToUI() {
 function addJobToUI(job) {
   const jobsBody = document.getElementById("jobsBody");
   const tr = document.createElement("tr");
+  tr.classList.add = "job";
+  tr.setAttribute("id", job.id);
   tr.innerHTML = `
-  <td class="job" id=${job.id}>${job.position}</td>
+  <td >${job.position}</td>
   <td>${job.company}</td>
   <td>${job.maxSalary}</td>
   <td>${job.location}</td>
