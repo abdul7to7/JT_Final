@@ -171,14 +171,30 @@ document.getElementById("closeJob").addEventListener("click", async (e) => {
   }
 });
 
-document.getElementById("updateJob").addEventListener("click", (e) => {
+document.getElementById("updateJob").addEventListener("click", async (e) => {
   const updateForm = document.getElementById("updateJobForm");
   if (updateForm.style.display == "none") {
+    const job = await getJob(jobId);
+    if (job && job.success) {
+      addJobToUpdateFrom(job);
+    }
     updateForm.style.display = "block";
   } else {
     updateForm.style.display = "none";
   }
 });
+
+function addJobToUpdateFrom(job) {
+  document.getElementById("jobPositionInput").value = job.jobDetails.position;
+  document.getElementById("companyInput").value = job.jobDetails.company;
+  document.getElementById("maxSalaryInput").value = job.jobDetails.maxSalary;
+  document.getElementById("locationInput").value = job.jobDetails.location;
+  document.getElementById("statusInput").value = job.jobDetails.status;
+  document.getElementById("dateAppliedInput").value =
+    job.jobDetails.dateApplied;
+  document.getElementById("descriptionInput").value =
+    job.jobDetails.description;
+}
 
 document
   .getElementById("updateJobForm")
