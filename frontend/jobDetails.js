@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 document.getElementById("jobStatus").addEventListener("click", async (e) => {
   if (e.target.classList.contains("jobStatusValue")) {
-    console.log("job status clicked:", e.target.getAttribute("value"));
     const body = {
       status: e.target.getAttribute("value"),
     };
@@ -102,7 +101,6 @@ document
     submitButton.disabled = true;
     const reminderContent = document.getElementById("reminderContent").value;
     const reminderDate = document.getElementById("reminderDate").value;
-    console.log("add reminder clicked", reminderContent, reminderDate);
     const res = await postReminder(reminderContent, reminderDate);
     addReminderToUI(res.reminder);
     submitButton.disabled = false;
@@ -136,7 +134,6 @@ document.getElementById("jobFiles").addEventListener("click", async (e) => {
     jobFilesContainer.style.display = "block";
     const jobId = e.target.getAttribute("jobid");
     const files = await getFiles(jobId);
-    console.log(files);
     addFilesToUI(files);
   } else {
     jobFilesContainer.style.display = "none";
@@ -149,7 +146,6 @@ document.getElementById("addFileForm").addEventListener("submit", async (e) => {
   const file = document.getElementById("jobFile").files[0];
 
   const res = await postFile(file);
-  console.log("add File clicked");
   window.location.reload();
 });
 
@@ -283,7 +279,6 @@ function updateStatus(status) {
 }
 
 function addNotesToUI(notes) {
-  console.log(notes);
   const jobNotesList = document.getElementById("jobNotesList");
   notes.map((note) => {
     const li = document.createElement("li");
@@ -293,7 +288,6 @@ function addNotesToUI(notes) {
 }
 
 function addRemindersToUI(reminders) {
-  console.log(reminders);
   const jobRemindersList = document.getElementById("jobRemindersList");
   reminders.map((reminder) => {
     const li = document.createElement("li");

@@ -90,19 +90,16 @@ document
     addJobsToUI(jobs);
   });
 
-// document
-//   .getElementById("removeFilterBtn")
-//   .addEventListener("click", async (e) => {
-//     console.log("remove all filter");
-//     localStorage.removeItem("filteredstatus");
-//     localStorage.removeItem("filteredstartdate");
-//     localStorage.removeItem("filteredenddate");
-//     localStorage.removeItem("filteredminsalary");
-//     localStorage.removeItem("searchkeyword");
-//     removeJobsToUI();
-//     const jobs = await getJobs();
-//     addJobsToUI(jobs);
-//   });
+document.getElementById("filterClear").addEventListener("click", async (e) => {
+  e.preventDefault();
+  localStorage.removeItem("filteredstatus");
+  localStorage.removeItem("filteredstartdate");
+  localStorage.removeItem("filteredenddate");
+  localStorage.removeItem("filteredminsalary");
+  removeJobsToUI();
+  const jobs = await getJobs();
+  addJobsToUI(jobs);
+});
 
 document
   .getElementById("searchJobKeywords")
