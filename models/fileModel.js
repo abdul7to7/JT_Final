@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../utils/db");
 
-const File = sequelize.define("file", {
+const File = sequelize.define("jt_file", {
   name: {
     type: Sequelize.STRING,
     nullAllowed: false,
