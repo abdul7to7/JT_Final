@@ -1,4 +1,4 @@
-const server = "https://jt-final-0ato.onrender.com";
+const server = "https://jt-final-1-backend.onrender.com";
 // const server = "http://localhost:3000";
 const token = localStorage.getItem("token");
 const jobId = localStorage.getItem("jobid");
