@@ -11,9 +11,7 @@ const cors = require("cors");
 const reminderCron = require("./utils/cronJobs");
 
 app.use(
-  cors({
-    origin: ["https://jt-final.vercel.app"],
-  })
+  cors()
 );
 
 app.use(express.json());
